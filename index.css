@@ -1,0 +1,20 @@
+.heading2{
+    color: indigo;
+}
+.heading3{
+    color: crimson;
+}
+.heading4{
+    color: cadetblue;
+}
+.heading2,.heading3,.heading4{
+    background-color: darkseagreen;
+}
+#list1{
+    color: blueviolet;
+    background-color: aquamarine;
+}
+#list2{
+    color: chocolate;
+    background-color: darkkhaki;
+}

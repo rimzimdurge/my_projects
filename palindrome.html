@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <input type="text" id="data">
+    <button onclick="ispalindrome()">submit</button>
+
+    <script>
+        function ispalindrome()
+        {
+          inputEle=document.getElementById("data");
+          s=inputEle.value;
+          rs=s.split("").reverse().join("");
+          if(s==rs)
+          {
+            alert("palindrome")
+          }
+          else
+          {
+            alert("not a palindrome")
+          }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <script>
+         data=[
+            {name:"priya",age:23},
+            {name:"ranjeet",age:7},
+            {name:"krishna",age:50},
+            {name:"anirudh",age:3},
+        ]
+
+        result=data.filter(obj=>{
+            return obj.age>=18
+        }).map(obj=>obj.age)
+
+        console.log("result=",result)
+
+    </script>
+</body>
+</html>

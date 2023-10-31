@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .card{
+            width: fit-content;
+            height: fit-content;
+            background-color: lightgreen;
+            padding: 25px;
+            margin: 10px;
+            display: inline-block;
+            position: relative;
+        }
+        .close-btn{
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            background-color: rgba(207, 25, 25,0.7);
+            padding: 5px;
+            border-radius: 50%;
+        }
+        .close-btn:hover{
+            background-color: rgba(207, 25, 25,1);
+            cursor: pointer;
+        }
+        .name{
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        .lead{
+            color: darkgoldenrod;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .search{
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+       <input type="text" id="name" placeholder="movie name">
+       <input type="text" id="lead" placeholder="lead actor name">
+       <input type="text" id="collection" placeholder="box office collection">
+       <button onclick="addMovie()">Add to DB</button>
+    </div>
+
+    <input id="searchip" class="search" type="text" placeholder="search here..">
+    <button onclick="search()">Search</button>
+
+    <div id="movieList">
+
+    </div>
+    <script>
+        dataArray=[
+            {name:"iron man",lead:"tony stark",collection:"200 mil"},
+            {name:"spider man",lead:"peter parker",collection:"210 mil"},
+            {name:"super man",lead:"clark",collection:"120 mil"},
+            {name:"thor",lead:"thor",collection:"180 mil"},
+        ]
+        render();
+        function search()
+        {
+          searchobj= document.getElementById("searchip");
+          searchData=searchObj.value;
+
+          searchResult=dataArray.filter(obj=>{
+           return obj.name.includes(searchData)
+          })
+          console.log("Search Result=",searchResult)
+          render(searchResult)
+        }
+
+        function addMovie()
+        {
+            //receive all inputs from user
+            nameObj=document.getElementById("name");
+            leadObj=document.getElementById("lead");
+            collectionObj=document.getElementById("collection")
+
+            tmpObj={name:nameObj.value,lead:leadObj.value,collection:collectionObj.value};
+            dataArray.push(tmpObj);
+            render();
+        }
+
+        function render(dataSource=dataArray)
+        {
+            movieListObj=document.getElementById("movieList")
+            html=''
+            dataSource.map((obj,index)=>{
+               html+=`<div class='card'>
+                 
+                    <div class='name'>${obj.name}</div>
+                    <div class='lead'>${obj.lead}</div>
+                    <div class='collection'>${obj.collection}</div>
+                    <button onclick='deleteMovie(${index})'>Delete</button>
+                </div>`
+
+            })
+            movieListObj.innerHTML=html;
+        }
+        
+        function deleteMovie(ind)
+        {
+            dataArray.splice(ind,1);
+            render();
+        }
+    </script>
+</body>
+</html>

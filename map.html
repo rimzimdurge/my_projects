@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <script>
+        data=["delHI","WElcome","CANada","appLE"];
+        result=data.map(ele=>ele.toUpperCase());
+        console.log("result=",result)
+
+        data=[
+            {name:"priya",age:23},
+            {name:"ranjeet",age:23},
+            {name:"krishna",age:23},
+            {name:"anirudh",age:23},
+        ]
+
+        names=data.map(obj=>obj.name.toUpperCase())
+        console.log("names=",names);
+
+        data=[
+            {name:"priya",age:23},
+            {name:"ranjeet",age:23},
+            {name:"krishna",age:23},
+            {name:"anirudh",age:23},
+        ]
+
+        result=data.map(obj=>{
+            if(obj.age>=18)
+            {
+                obj['status']='major';
+            }
+            else
+            {
+                obj['status']='minor';
+            }
+        })
+
+    </script>
+</body>
+</html>
